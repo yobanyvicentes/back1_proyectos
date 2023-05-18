@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  proyectos-backend:
+    container_name: proyectos-backend
+    restart: always
+    build: .
+    ports:
+      - "5000:3000"
+    links:
+      - mongo
+    volumes:
+      - .:/usr/src/app
+
+  mongo:
+    container_name: mongodb
+    image: mongo
+    ports:
+      - "27020:27017"
+
+
